@@ -45,12 +45,15 @@ const StartGameScreen = () => {
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
-      <View>
-        <Text style={styles.title}>Chosen Number: {selectedNumber}</Text>
+      <Card style={styles.outputContainer}>
+      <View style={styles.confirmedOutputContainer}>
+        <Text style={styles.title}>You Chose</Text>
+        <Text style={styles.selectedNumber}>{selectedNumber}</Text>
         <View style={styles.button} >
         <Button color={Colors.darkSecondary} title="Start Game" onPress={() => {}}/>
         </View>
       </View>
+      </Card>
     );
   }
 
@@ -137,6 +140,27 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 6,
   },
+  selectedNumber: {
+    marginVertical: 5,
+    marginBottom: 20,
+    fontSize: 60,
+    color: Colors.secondary,
+    fontWeight: "500",
+    borderWidth: 2,
+    borderRadius: 3,
+    padding: 5,
+    borderColor: Colors.primary
+  },
+  confirmedOutputContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1
+  },
+  outputContainer: {
+    marginTop: 25,
+    height: 225,
+    width: '50%'
+  }
 });
 
 export default StartGameScreen;
