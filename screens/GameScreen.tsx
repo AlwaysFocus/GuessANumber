@@ -30,16 +30,19 @@ const GameScreen = (props: any) => {
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
 
+  // Get our props
+  const {userChoice, onGameFinished} = props;
+
   useEffect(() => {
-    if (currentGuess === props.userChoice) {
-        props.onGameFinished(numberOfGuesses);
+    if (currentGuess === userChoice) {
+        onGameFinished(numberOfGuesses);
     }
-  },[])
+  },[currentGuess, userChoice, onGameFinished])
 
   const nextGuessHandler = (direction: any) => {
     if (
-      (direction === "lower" && currentGuess < props.userChoice) ||
-      (direction === "greater" && currentGuess > props.userChoice)
+      (direction === "lower" && currentGuess < userChoice) ||
+      (direction === "higher" && currentGuess > userChoice)
     ) {
       Alert.alert("Hmm, that doesn't seem right...", "Give the proper hint..", [
         { text: "My Bad!", style: "cancel" },
@@ -49,15 +52,15 @@ const GameScreen = (props: any) => {
 
     if (direction === "lower") {
       currentHigh.current = currentGuess;
-      setNumberOfGuesses(numberOfGuesses + 1);
     } else {
       currentLow.current = currentGuess;
-      setNumberOfGuesses(numberOfGuesses + 1);
+      
     }
 
     const nextNumber = GenerateNumberBetween(currentLow.current, currentHigh.current, currentGuess);
 
     setCurrentGuess(nextNumber);
+    setNumberOfGuesses(numberOfGuesses => numberOfGuesses + 1);
   };
 
   return (
