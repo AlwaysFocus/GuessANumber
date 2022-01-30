@@ -14,7 +14,11 @@ import Card from "../components/Card";
 import Input from "../components/Input";
 import Colors from "../constants/Colors";
 
-const StartGameScreen = () => {
+interface Props {
+  onStartGame: (userChoice: number) => void;
+}
+
+const StartGameScreen = (props: Props) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState(0);
@@ -42,6 +46,10 @@ const StartGameScreen = () => {
     Keyboard.dismiss();
   };
 
+  const startGame = () => {
+    props.onStartGame(selectedNumber);
+  }
+
   let confirmedOutput;
   if (confirmed) {
     confirmedOutput = (
@@ -50,7 +58,7 @@ const StartGameScreen = () => {
         <Text style={styles.title}>You Chose</Text>
         <Text style={styles.selectedNumber}>{selectedNumber}</Text>
         <View style={styles.button} >
-        <Button color={Colors.darkSecondary} title="Start Game" onPress={() => {}}/>
+        <Button color={Colors.darkSecondary} title="Start Game" onPress={startGame}/>
         </View>
       </View>
       </Card>
@@ -147,7 +155,7 @@ const styles = StyleSheet.create({
     color: Colors.secondary,
     fontWeight: "500",
     borderWidth: 2,
-    borderRadius: 3,
+    borderRadius: 10,
     padding: 5,
     borderColor: Colors.primary
   },
