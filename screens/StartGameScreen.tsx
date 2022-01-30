@@ -132,11 +132,13 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     color: "white",
+    fontFamily: 'supermercadoOne'
   },
   title: {
     fontSize: 20,
     marginVertical: 10,
     color: Colors.secondary,
+    fontFamily: 'supermercadoOne'
   },
   button: {
     backgroundColor: Colors.secondary,

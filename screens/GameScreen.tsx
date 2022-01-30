@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     color: Colors.secondary,
     marginBottom: 10,
+    fontFamily: 'supermercadoOne'
   },
 });
 
