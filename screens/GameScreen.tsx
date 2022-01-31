@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, StyleSheet, Text, Button, Alert } from "react-native";
+import {Ionicons} from '@expo/vector-icons'
+
 import Card from "../components/Card";
 import Colors from "../constants/Colors";
 

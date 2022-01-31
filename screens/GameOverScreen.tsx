@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Button } from "react-native";
+import { StyleSheet, View, Text, Button, Image } from "react-native";
 
 import Card from "../components/Card";
 import Colors from "../constants/Colors";
@@ -9,6 +9,8 @@ const GameOverScreen = (props: any) => {
     <View style={styles.screen}>
       <Card style={styles.card}>
         <Text style={styles.text}>The Game is Over!</Text>
+        
+        
         <Text style={styles.text}>
           Number of rounds: {props.numberOfRounds}
         </Text>
@@ -45,8 +47,16 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 25,
     paddingVertical: 5,
-    color: Colors.secondary
+    color: Colors.secondary,
   },
+  imageContainer: {
+    width: 300,
+    height: 300,
+  },
+  image: {
+    width: '80%',
+
+  }
 });
 
 export default GameOverScreen;
